@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>一键式综合查询</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="/js/jquery-2.1.1.min.js"></script>
+	<script src="/js/jquery.mobile-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="/js/jquery.mobile-1.4.2.min.css">
+      <script type="text/javascript"> 
+	 function ajaxNodeGetMobileState(){
+        //alert("ajaxNodeGetMobileState...");
+	 	var phoneNumber=$('#phone').val();
+    		 //对输入的手机号码进行验证
+    	if(phoneNumber!=null){
+           var hostport=document.location.host;
+           var urltxt = "http://" + hostport + "/getCellAddrs.ws";
+           var args = {"name":phoneNumber};
+           //alert(urltxt);
+           //alert(JSON.stringify(args));
+
+           //test 
+           /*
+           $("#mobileState").html(JSON.stringify(args));
+           return;*/
+
+           $.get(urltxt, args, function(result){
+                 //alert("222");
+                 $("#mobileState").html(result);
+               });
+          }
+     }
+    </script>
+</head>
+<body>
+	<div data-role="page" data-theme="e">
+		<div data-role="header" data-theme="b" >
+			<h1>查询网元</h1>
+
+		</div>
+		<div data-role="content">
+			<p id="mobileState">xxx</p>
+			<p style="font-weight:bold;">
+				<label for="phone" style="text-align:right;margin-top:0.6em;">手机号码:</label>
+				<input type="text"  name="phone" id="phone" value="" placeholder="输入手机号码..." data-theme="d"/>
+			</p>
+        <a class="ui-btn ui-corner-all" onclick="ajaxNodeGetMobileState();">查询</a>
+        <a class="ui-btn ui-corner-all" onclick="top.location='/main/index.html';">返回</a>
+<!--
+			<button type="button" data-theme="b" onclick="ajaxNodeGetMobileState();" name="submit">查询</button>
+-->
+		</div>
+		<div data-role="footer" data-theme="b">
+			<h1>一键查询功能</h1>
+		</div>
+	</div>
+
+</body>
+</html>

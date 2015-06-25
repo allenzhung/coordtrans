@@ -1,0 +1,8 @@
+{
+    "args":{
+	   "name": "oss_search"
+  	  },
+ 	"soapUrl": "http://127.0.0.1/test/WS_Addrs.asmx?wsdl",
+	"soapAction": "http://tempuri.org/GetCellAddrs",
+	"soapMethod": "GetCellAddrs "
+}

@@ -1,0 +1,8 @@
+{
+	"args": {
+		"theCityName": "广州"
+	},
+	"soapUrl": "http://www.webxml.com.cn/WebServices/WeatherWebService.asmx?wsdl",
+	"soapAction": "http://WebXml.com.cn/getWeatherbyCityName",
+	"soapMethod": "getWeatherbyCityName"
+}

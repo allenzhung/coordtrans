@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Oss能力综合查询</title>
+
+	<script src="../js/jquery-2.1.1.min.js"></script>
+	<script src="../js/jquery.mobile-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="../js/jquery.mobile-1.4.2.min.css">
+
+<script type="text/javascript">
+function getVerifyUser(){ 
+        //alert("1111");
+	 	var usercode=$('#user').val();
+	 	//alert(usercode);
+           var hostport=document.location.host;
+           var urltxt = "http://" + hostport + "/verifyUser.node";
+           var args = {"user":usercode};
+           //alert(urltxt);
+           //alert(JSON.stringify(args));
+           $.get(urltxt, args ,function(result){
+                 //alert("222");
+                 //alert(result);
+                 $("#authInfo").html(result);
+               });
+     }
+</script>
+
+<script type="text/javascript">
+function postVerifyUser(){
+        //alert("1111");
+	 	var usercode=$('#user').val();
+	 	//alert(usercode);
+           var hostport=document.location.host;
+           var urltxt = "http://" + hostport + "/verifyUser.node";
+           var args = {"user":usercode,
+               "password":$('#pwd').val()
+               };
+           //alert(urltxt);
+           //alert(JSON.stringify(args));
+           $.post(urltxt, args ,function(result){
+                 //alert("222");
+                 var obj = JSON.parse(result);
+                 //alert(result);
+                 $("#authInfo").html(obj.verifyReturn.status);
+                 if(obj.verifyReturn.status=="valid") {
+                  queryNetState();
+                 }
+               });
+     }
+</script>
+
+<script type="text/javascript">
+function queryNetState(){
+  //alert("queryNetState");
+  top.location="/main/queryNetState.html";
+     }
+</script>
+
+
+</script>
+
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="welcome">
+
+	<div data-role="header">
+		<h1>欢迎使用</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>第一个手机程序</p>
+		<p>请多多鼓励 <a href="#login">Login</a></p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>write by zm</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start of second page -->
+<div data-role="page" id="login">
+
+	<div data-role="header">
+		<h1>Login</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+	    <label for="user">User:</label>
+        <input type="text" name="name" id="user" value="">
+	    <label for="pwd">Password:</label>
+        <input type="text" name="name" id="pwd" value="">
+        <p id="authInfo">xxx</p>
+        <a class="ui-btn ui-corner-all" data-theme="b" onclick="postVerifyUser();">登录</a>
+        <a class="ui-btn ui-corner-all" href="#welcome">返回</a>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>write by zm</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather</title>
+<script type ="text/javascript" src="../oss/js/jquery-2.1.1.min.js"></script>
+<script>
+    $().ready(function(){
+       $("#Query").click(function() {
+        alert("000000000");
+        ajaxNodeGetWeather();
+       })
+    }); 
+ function ajaxNodeGetWeather(){
+      alert("111");
+      var urltxt = "http://localhost:3000/getWeather.ws";
+      alert(urltxt);
+        $.get(urltxt, {phonenumber:document.getElementById('phonenumber').value},function(result){
+            alert("222");
+            $("#divWeather1").html(result);
+        });
+    }
+</script>
+</head>
+
+<body>
+<div id="divWeather1">xxx</div>
+<div id="divWeather2">xxx</div>
+<!-- 加上form 就有问题 -->
+<!-- <form> -->
+<p>phone number: <input type="text" id="phonenumber" name="phonenumber" /></p>
+<input type="submit" id="Query" value="Query" />
+<input type="submit" id="Test" value="Test" />
+<!-- </form> -->
+</body>
+</html>

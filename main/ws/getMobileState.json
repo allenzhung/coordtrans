@@ -1,0 +1,12 @@
+{
+    "args":{
+	   "user": "oss_search",
+	   "passwd": "9S'4o+8n",
+	   "workordernumber": "",
+	   "agent": "",
+	   "number": "phoneNumber"
+  	  },
+ 	"soapUrl": "http://132.96.191.32:6229/axis2/services/IntegratedServ?wsdl",
+	"soapAction": "http://132.96.191.32:6229/axis2/services/GetIntegrated_State/",
+	"soapMethod": "GetIntegrated_State"
+}

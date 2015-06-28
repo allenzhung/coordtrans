@@ -4,18 +4,7 @@
 	fs = require("fs");
 
 //console.log(process.argv);
-var hostip, hostport;
-if (process.argv.length == 2) {
-	hostip = "127.0.0.1";
-	hostport = "3000";
-} else if (process.argv.length == 4) {
-	hostip = process.argv[2];
-	hostport = process.argv[3];
-} else {
-	console.log("Usage: node server.js [ip port]");
-	return;
-}
-//console.log(hostip + ":" + "hostport");
+var hostport=5000;
 
 fs.writeFile('./session.json', "[]", function(wferr) {});
 
@@ -104,9 +93,9 @@ http.createServer(function(req, res) {
 		}
 	});
 
-}).listen(hostport, hostip);
+}).listen(hostport);
 
-console.log("OSS Query Server(ver 0.1) running at ... http://" + hostip + ":" + hostport + "/");
+console.log("OSS Query Server(ver 0.1) running at ... " + hostport);
 
 function reponseFile(req,res,fs,pathname) {
 	fs.readFile(pathname, function(err1, data) {

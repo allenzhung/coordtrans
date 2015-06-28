@@ -6,7 +6,7 @@
 //console.log(process.argv);
 var hostport=process.env.PORT || 5000;
 
-// fs.writeFile('./session.json', "[]", function(wferr) {});
+fs.writeFile('./session.json', "[]", function(wferr) {});
 
 http.createServer(function(req, res) {
 	var pathname = __dirname + url.parse(req.url).pathname;

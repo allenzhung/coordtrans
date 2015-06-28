@@ -4,7 +4,7 @@
 	fs = require("fs");
 
 //console.log(process.argv);
-var hostport=5000;
+var hostport=process.env.PORT || 5000;
 
 // fs.writeFile('./session.json', "[]", function(wferr) {});
 

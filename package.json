@@ -1,0 +1,25 @@
+{
+  "name": "coordtrans",
+  "version": "0.0.1",
+  "description": "first nodejs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "soap": "~0.4.5"
+  },
+  "engines": {
+    "node": "0.10.29"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allenzhung/coordtrans"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}

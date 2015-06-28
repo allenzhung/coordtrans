@@ -1,0 +1,7 @@
+{
+  "name": "zm first Node.js app",
+  "description": "first app",
+  "repository": " https://github.com/allenzhung/coordtrans",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"]
+}
